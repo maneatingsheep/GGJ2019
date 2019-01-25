@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114954708990657440}
   - component: {fileID: 114169467610282802}
   m_Layer: 0
-  m_Name: ClueButton
+  m_Name: ClueButtonPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

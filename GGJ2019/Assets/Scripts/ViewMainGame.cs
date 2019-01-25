@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ViewMainGame : MonoBehaviour {
 
@@ -13,7 +14,16 @@ public class ViewMainGame : MonoBehaviour {
     public ViewClueButton ButtonPrefab;
     private List<ViewClueButton> _clueButtons;
 
+    public RectTransform ClueContainer;
+    public TextMeshProUGUI CluePrefab;
+    private List<TextMeshProUGUI> _clues;
+    private int _currentClue;
+
+    public Timer TimerRef;
+    public float ClueEveryXSecs;
+
     public void InitLevel(ModelLevelData levelData) {
+        TimerRef.StopTimer();
         _targets = new List<ViewTarget>();
         for (int i = 0; i < levelData.Targets.Length; i++) {
             ViewTarget newTarget = Instantiate(TargetPrefab, MainBuilding);
@@ -26,6 +36,28 @@ public class ViewMainGame : MonoBehaviour {
             ViewClueButton newButton = Instantiate(ButtonPrefab, ButtonsContainer);
             newButton.FillButtonText(levelData.Targets[0].Props[i].Key);
             _clueButtons.Add(newButton);
+        }
+
+        _clues = new List<TextMeshProUGUI>();
+        for (int i = 0; i < levelData.Clues.Length; i++) {
+            TextMeshProUGUI newClue = Instantiate(CluePrefab, ClueContainer);
+            newClue.text = levelData.Clues[i];
+            _clues.Add(newClue);
+        }
+        _currentClue = 0;
+        ShowNextClue();
+        TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
+
+    }
+
+    private void ShowNextClue() {
+        Debug.Log("ShowNextClue: " + _currentClue);
+        for (int i = 0; i < _clues.Count; i++) {
+            _clues[i].gameObject.SetActive(i <= _currentClue);
+        }
+        _currentClue++;
+        if(_currentClue < _clues.Count) {
+            TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
         }
     }
 
