@@ -6,101 +6,168 @@
         {
           "Props": [
             {
-              "Key": "country",
-              "Val": "USA1"
+              "Key": "Gender",
+              "Val": "Male"
             },
             {
-              "Key": "skin",
-              "Val": "black1"
+              "Key": "Age",
+              "Val": "18-24"
             },
             {
-              "Key": "weight",
-              "Val": "fat1"
+              "Key": "Maritial Status",
+              "Val": "Single"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Japan"
+            },
+            {
+              "Key": "Race",
+              "Val": "Asian"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Secular"
             }
           ]
         },
         {
           "Props": [
             {
-              "Key": "country",
-              "Val": "USA1"
+              "Key": "Gender",
+              "Val": "Male"
             },
             {
-              "Key": "skin",
-              "Val": "black1"
+              "Key": "Age",
+              "Val": "25-34"
             },
             {
-              "Key": "weight",
-              "Val": "fat1"
+              "Key": "Maritial Status",
+              "Val": "Single"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Poland"
+            },
+            {
+              "Key": "Race",
+              "Val": "Cocasian"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Judaism"
             }
           ]
         },
         {
           "Props": [
             {
-              "Key": "country",
-              "Val": "USA1"
+              "Key": "Gender",
+              "Val": "Female"
             },
             {
-              "Key": "skin",
-              "Val": "black1"
+              "Key": "Age",
+              "Val": "35-50"
             },
             {
-              "Key": "weight",
-              "Val": "fat1"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Clues": [ "clue21", "clue22", "Clue23" ],
-      "Targets": [
-        {
-          "Props": [
-            {
-              "Key": "country",
-              "Val": "USA21"
+              "Key": "Maritial Status",
+              "Val": "Divorced"
             },
             {
-              "Key": "skin",
-              "Val": "black21"
+              "Key": "Nationality",
+              "Val": "UK"
             },
             {
-              "Key": "weight",
-              "Val": "fat21"
+              "Key": "Race",
+              "Val": "African"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Cristianity"
             }
           ]
         },
         {
           "Props": [
             {
-              "Key": "country",
-              "Val": "USA21"
+              "Key": "Gender",
+              "Val": "Female"
             },
             {
-              "Key": "skin",
-              "Val": "black21"
+              "Key": "Age",
+              "Val": "51-60"
             },
             {
-              "Key": "weight",
-              "Val": "fat21"
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "USA"
+            },
+            {
+              "Key": "Race",
+              "Val": "Cocasian"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Secular"
             }
           ]
         },
         {
           "Props": [
             {
-              "Key": "country",
-              "Val": "USA21"
+              "Key": "Gender",
+              "Val": "Female"
             },
             {
-              "Key": "skin",
-              "Val": "black21"
+              "Key": "Age",
+              "Val": "61-80"
             },
             {
-              "Key": "weight",
-              "Val": "fat21"
+              "Key": "Maritial Status",
+              "Val": "Divorced"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "France"
+            },
+            {
+              "Key": "Race",
+              "Val": "Cocasian"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Islam"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Non-Binary"
+            },
+            {
+              "Key": "Age",
+              "Val": "18-24"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Poland"
+            },
+            {
+              "Key": "Race",
+              "Val": "Middle Eastern"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Cristianity"
             }
           ]
         }
