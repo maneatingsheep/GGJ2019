@@ -1,8 +1,54 @@
 {
   "Levels": [
     {
-      "Clues": [ "clue11", "clue12", "Clue13" ],
+      "Clues": [
+        "can read musical notes",
+        "has kids",
+        "has no living grandparents",
+        "is a female",
+        "is not religious"
+      ],
       "Targets": [
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Age",
+              "Val": "51-60"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "USA"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Caucasian"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Secular"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Carpenter"
+            },
+            {
+              "Key": "Education",
+              "Val": "Proffessional School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Private Car"
+            }
+          ]
+        },
         {
           "Props": [
             {
@@ -22,12 +68,24 @@
               "Val": "Japan"
             },
             {
-              "Key": "Race",
+              "Key": "Ethnicity",
               "Val": "Asian"
             },
             {
               "Key": "Religion",
               "Val": "Secular"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Sailor"
+            },
+            {
+              "Key": "Education",
+              "Val": "Elementary"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Bus/Metro"
             }
           ]
         },
@@ -50,12 +108,24 @@
               "Val": "Poland"
             },
             {
-              "Key": "Race",
-              "Val": "Cocasian"
+              "Key": "Ethnicity",
+              "Val": "Caucasian"
             },
             {
               "Key": "Religion",
-              "Val": "Judaism"
+              "Val": "Jewish"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Tecacher"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Bus/Metro"
             }
           ]
         },
@@ -78,40 +148,24 @@
               "Val": "UK"
             },
             {
-              "Key": "Race",
+              "Key": "Ethnicity",
               "Val": "African"
             },
             {
               "Key": "Religion",
-              "Val": "Cristianity"
-            }
-          ]
-        },
-        {
-          "Props": [
-            {
-              "Key": "Gender",
-              "Val": "Female"
+              "Val": "Christian"
             },
             {
-              "Key": "Age",
-              "Val": "51-60"
+              "Key": "Proffession",
+              "Val": "Clerk"
             },
             {
-              "Key": "Maritial Status",
-              "Val": "Married"
+              "Key": "Education",
+              "Val": "Advanced Academic"
             },
             {
-              "Key": "Nationality",
-              "Val": "USA"
-            },
-            {
-              "Key": "Race",
-              "Val": "Cocasian"
-            },
-            {
-              "Key": "Religion",
-              "Val": "Secular"
+              "Key": "Transportation",
+              "Val": "Private Car"
             }
           ]
         },
@@ -134,12 +188,24 @@
               "Val": "France"
             },
             {
-              "Key": "Race",
-              "Val": "Cocasian"
+              "Key": "Ethnicity",
+              "Val": "Caucasian"
             },
             {
               "Key": "Religion",
-              "Val": "Islam"
+              "Val": "Muslim"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Musician"
+            },
+            {
+              "Key": "Education",
+              "Val": "Highschool"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Taxi"
             }
           ]
         },
@@ -162,12 +228,24 @@
               "Val": "Poland"
             },
             {
-              "Key": "Race",
+              "Key": "Ethnicity",
               "Val": "Middle Eastern"
             },
             {
               "Key": "Religion",
-              "Val": "Cristianity"
+              "Val": "Christian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Student"
+            },
+            {
+              "Key": "Education",
+              "Val": "Advanced Academic"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Cycling"
             }
           ]
         }

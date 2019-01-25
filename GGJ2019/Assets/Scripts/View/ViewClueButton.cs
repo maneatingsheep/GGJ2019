@@ -7,14 +7,14 @@ using System;
 
 public class ViewClueButton : MonoBehaviour {
     public TextMeshProUGUI ButtonText;
-    public static Action<string> EButtonPressed;
+    public static Action<ViewClueButton> EButtonPressed;
 
     public void FillButtonText(string text) {
         ButtonText.text = text;
     }
 
     public void ClueButtonClicked() {
-        EButtonPressed(ButtonText.text);
+        EButtonPressed(this);
     }
 	
 }

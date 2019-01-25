@@ -15,17 +15,20 @@ public class ViewMainGame : MonoBehaviour {
 
     public RectTransform ButtonsContainer;
     public ViewClueButton ButtonPrefab;
-    private List<ViewClueButton> _clueButtons;
+    private List<ViewClueButton> _propButtons;
 
     public RectTransform ClueContainer;
     public TextMeshProUGUI CluePrefab;
     private List<TextMeshProUGUI> _clues;
     private int _currentClue;
 
+    private int _currentPropIndex;
+
     public Timer TimerRef;
     public float ClueEveryXSecs;
 
     public void InitLevel(ModelLevelData levelData) {
+        _levelData = levelData;
         MainBuilding.anchoredPosition = Vector2.one;
         TimerRef.StopTimer();
         _targets = new List<ViewTarget>();
@@ -35,11 +38,11 @@ public class ViewMainGame : MonoBehaviour {
             _targets.Add(newTarget);
         }
 
-        _clueButtons = new List<ViewClueButton>();
+        _propButtons = new List<ViewClueButton>();
         for (var i = 0; i < levelData.Targets[0].Props.Length; i++) {
             ViewClueButton newButton = Instantiate(ButtonPrefab, ButtonsContainer);
             newButton.FillButtonText(levelData.Targets[0].Props[i].Key);
-            _clueButtons.Add(newButton);
+            _propButtons.Add(newButton);
         }
 
         _clues = new List<TextMeshProUGUI>();
@@ -55,7 +58,7 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     private void ShowNextClue() {
-        Debug.Log("ShowNextClue: " + _currentClue);
+        
         for (int i = 0; i < _clues.Count; i++) {
             _clues[i].gameObject.SetActive(i <= _currentClue);
         }
@@ -66,22 +69,44 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     internal void Init() {
-        ViewClueButton.EButtonPressed += ShowClueData;
+        ViewClueButton.EButtonPressed += ShowPropFromButton;
     }
 
-    public void ShowClueData(string clue) {
+    public void ShowPropFromButton(ViewClueButton button) {
+        _currentPropIndex = _propButtons.IndexOf(button);
+        ShowCurrentProp();
+    }
+
+   public void ShowNextProp(bool isUp) {
+        if (isUp) {
+            _currentPropIndex++; 
+        } else {
+            _currentPropIndex--;
+            _currentPropIndex += _levelData.Targets[0].Props.Length;
+
+        }
+        _currentPropIndex %=  _levelData.Targets[0].Props.Length;
+
+        ShowCurrentProp();
+    }
+
+    public void ShowCurrentProp() {
         for (int i = 0; i < _targets.Count; i++) {
-            _targets[i].ShowClue(clue);
+            _targets[i].ShowProp(_levelData.Targets[i].Props[_currentPropIndex].Key);
         }
     }
 
+
     private Vector3 _lastMousePos;
     private bool _mouseDown;
+    internal Vector2 MOVE_SCALE_VECTOR = new Vector2(2f, 3f);
+    private ModelLevelData _levelData;
+
     private void Update() {
-        if(Input.GetMouseButton(0)) {
-            Debug.Log("mousepos: " + Input.mousePosition);
-            if(_mouseDown) {
-                Vector2 newPos = MainBuilding.anchoredPosition - (Vector2)(_lastMousePos - Input.mousePosition);
+        if (Input.GetMouseButton(0)) {
+
+            if (_mouseDown) {
+                Vector2 newPos = MainBuilding.anchoredPosition - (_lastMousePos - Input.mousePosition) * MOVE_SCALE_VECTOR;
                 newPos = Vector2.Min(newPos, MaxBuildingAnchoredPosition);
                 newPos = Vector2.Max(newPos, MinBuildingAnchoredPosition);
                 MainBuilding.anchoredPosition = newPos;
@@ -91,6 +116,13 @@ public class ViewMainGame : MonoBehaviour {
             _lastMousePos = Input.mousePosition;
         } else {
             _mouseDown = false;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            ShowNextProp(true);
+        } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            ShowNextProp(false);
         }
     }
 }

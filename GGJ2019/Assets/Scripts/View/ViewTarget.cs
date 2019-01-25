@@ -13,7 +13,7 @@ public class ViewTarget : MonoBehaviour {
 
     }
 
-    public void ShowClue(string clue) {
+    public void ShowProp(string clue) {
         for (int i = 0; i < Target.Props.Length; i++) {
             if(Target.Props[i].Key == clue) {
                 ClueText.text = Target.Props[i].Val;

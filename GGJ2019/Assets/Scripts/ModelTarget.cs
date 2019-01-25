@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ModelTarget {
 
+    public bool IsCorrect = false;
     public Prop[] Props;
 
 	
