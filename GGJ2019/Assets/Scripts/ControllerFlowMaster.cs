@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ControllerFlowMaster : MonoBehaviour {
     public ViewMainGame MainView;
+    public ModelLevelMaster LevelMaster;
 
     private void Awake() {
         InitAll();
@@ -15,8 +16,8 @@ public class ControllerFlowMaster : MonoBehaviour {
     }
 
     private void InitLevel() {
-        ModelLevelData levelData = new ModelLevelData();
-        MainView.InitLevel(levelData);
+        
+        MainView.InitLevel(LevelMaster.GetNextLevel());
     }
 
 }

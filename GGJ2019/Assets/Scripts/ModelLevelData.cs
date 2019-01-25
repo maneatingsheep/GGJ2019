@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ModelLevelData {
 
-    List<string> Clues;
+    public List<string> Clues;
 
-    List<ModelTarget> Targets;
+    public List<ModelTarget> Targets;
 
 }
