@@ -15,16 +15,16 @@ public class ViewMainGame : MonoBehaviour {
 
     public void InitLevel(ModelLevelData levelData) {
         _targets = new List<ViewTarget>();
-        for (int i = 0; i < levelData.Targets.Count; i++) {
+        for (int i = 0; i < levelData.Targets.Length; i++) {
             ViewTarget newTarget = Instantiate(TargetPrefab, MainBuilding);
             newTarget.Fill(levelData.Targets[i]);
             _targets.Add(newTarget);
         }
 
         _clueButtons = new List<ViewClueButton>();
-        foreach (var key in levelData.Targets[0].InfoValues.Keys) {
+        for (var i = 0; i < levelData.Targets[0].Props.Length; i++) {
             ViewClueButton newButton = Instantiate(ButtonPrefab, ButtonsContainer);
-            newButton.FillButtonText(key);
+            newButton.FillButtonText(levelData.Targets[0].Props[i].Key);
             _clueButtons.Add(newButton);
         }
     }

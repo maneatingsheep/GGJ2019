@@ -14,12 +14,12 @@ public class ViewTarget : MonoBehaviour {
     }
 
     public void ShowClue(string clue) {
-        string value = "NAN";
-        if(Target.InfoValues.TryGetValue(clue, out value)) {
-            ClueText.text = value;
-        } else {
-            Debug.Log("Target " + gameObject.name + " doesn't have a value for " + clue + "!");
+        for (int i = 0; i < Target.Props.Length; i++) {
+            if(Target.Props[i].Key == clue) {
+                ClueText.text = Target.Props[i].Val;
+                return;
+            }
         }
-        
+        Debug.Log("Target " + gameObject.name + " doesn't have a value for " + clue + "!");
     }
 }
