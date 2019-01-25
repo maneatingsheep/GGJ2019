@@ -10,6 +10,6 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     internal void Init() {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 }

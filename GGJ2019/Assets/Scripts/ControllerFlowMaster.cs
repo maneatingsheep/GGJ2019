@@ -12,7 +12,8 @@ public class ControllerFlowMaster : MonoBehaviour {
 
     private void InitAll() {
         MainView.Init();
-
+        LevelMaster.Init();
+        InitLevel();
     }
 
     private void InitLevel() {

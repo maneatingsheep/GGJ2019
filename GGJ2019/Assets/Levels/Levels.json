@@ -1,0 +1,110 @@
+{
+  "Levels": [
+    {
+      "Clues": [ "clue11", "clue12", "Clue13" ],
+      "Targets": [
+        {
+          "Props": [
+            {
+              "Key": "country",
+              "Val": "USA1"
+            },
+            {
+              "Key": "skin",
+              "Val": "black1"
+            },
+            {
+              "Key": "weight",
+              "Val": "fat1"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "country",
+              "Val": "USA1"
+            },
+            {
+              "Key": "skin",
+              "Val": "black1"
+            },
+            {
+              "Key": "weight",
+              "Val": "fat1"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "country",
+              "Val": "USA1"
+            },
+            {
+              "Key": "skin",
+              "Val": "black1"
+            },
+            {
+              "Key": "weight",
+              "Val": "fat1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Clues": [ "clue21", "clue22", "Clue23" ],
+      "Targets": [
+        {
+          "Props": [
+            {
+              "Key": "country",
+              "Val": "USA21"
+            },
+            {
+              "Key": "skin",
+              "Val": "black21"
+            },
+            {
+              "Key": "weight",
+              "Val": "fat21"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "country",
+              "Val": "USA21"
+            },
+            {
+              "Key": "skin",
+              "Val": "black21"
+            },
+            {
+              "Key": "weight",
+              "Val": "fat21"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "country",
+              "Val": "USA21"
+            },
+            {
+              "Key": "skin",
+              "Val": "black21"
+            },
+            {
+              "Key": "weight",
+              "Val": "fat21"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
