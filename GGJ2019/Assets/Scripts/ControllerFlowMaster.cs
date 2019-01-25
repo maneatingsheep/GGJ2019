@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,12 +13,11 @@ public class ControllerFlowMaster : MonoBehaviour {
 
     private void InitAll() {
         MainView.Init();
-
+        InitLevel();
     }
 
     private void InitLevel() {
-        
+
         MainView.InitLevel(LevelMaster.GetNextLevel());
     }
-
 }

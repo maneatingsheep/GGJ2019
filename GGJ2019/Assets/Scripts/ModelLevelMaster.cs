@@ -14,7 +14,7 @@ public class ModelLevelMaster : MonoBehaviour {
 
     internal ModelLevelData GetNextLevel() {
         ModelLevelData retVal = new ModelLevelData();
-
+        retVal.Targets = new List<ModelTarget>();
         retVal.Clues = new List<string>() { "clue 1 is a long one", "clue 2 is even longer " };
 
 
