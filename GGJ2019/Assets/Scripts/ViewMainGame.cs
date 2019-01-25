@@ -6,6 +6,9 @@ using TMPro;
 
 public class ViewMainGame : MonoBehaviour {
 
+    public Vector2 MinBuildingAnchoredPosition;
+    public Vector2 MaxBuildingAnchoredPosition;
+
     public RectTransform MainBuilding;
     public ViewTarget TargetPrefab;
     private List<ViewTarget> _targets;
@@ -23,6 +26,7 @@ public class ViewMainGame : MonoBehaviour {
     public float ClueEveryXSecs;
 
     public void InitLevel(ModelLevelData levelData) {
+        MainBuilding.anchoredPosition = Vector2.one;
         TimerRef.StopTimer();
         _targets = new List<ViewTarget>();
         for (int i = 0; i < levelData.Targets.Length; i++) {
@@ -68,6 +72,25 @@ public class ViewMainGame : MonoBehaviour {
     public void ShowClueData(string clue) {
         for (int i = 0; i < _targets.Count; i++) {
             _targets[i].ShowClue(clue);
+        }
+    }
+
+    private Vector3 _lastMousePos;
+    private bool _mouseDown;
+    private void Update() {
+        if(Input.GetMouseButton(0)) {
+            Debug.Log("mousepos: " + Input.mousePosition);
+            if(_mouseDown) {
+                Vector2 newPos = MainBuilding.anchoredPosition - (Vector2)(_lastMousePos - Input.mousePosition);
+                newPos = Vector2.Min(newPos, MaxBuildingAnchoredPosition);
+                newPos = Vector2.Max(newPos, MinBuildingAnchoredPosition);
+                MainBuilding.anchoredPosition = newPos;
+            }
+            _mouseDown = true;
+
+            _lastMousePos = Input.mousePosition;
+        } else {
+            _mouseDown = false;
         }
     }
 }
