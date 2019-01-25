@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class ModelLevelData {
 
-    public List<string> Clues;
+    public string[] Clues;
 
-    public List<ModelTarget> Targets;
+    public ModelTarget[] Targets;
 
 }
+

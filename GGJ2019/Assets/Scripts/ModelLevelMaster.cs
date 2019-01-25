@@ -1,19 +1,28 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ModelLevelMaster : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public TextAsset LevelsJSON;
+
+    private LevelsList _levelsList;
+
+
+
+    // Use this for initialization
+    public void Init () {
+        _levelsList = JsonUtility.FromJson<LevelsList>(LevelsJSON.text);
+        print(LevelsJSON.text);
+    }
 	
 	
 
     internal ModelLevelData GetNextLevel() {
-        ModelLevelData retVal = new ModelLevelData();
+        /*ModelLevelData retVal = new ModelLevelData();
+        retVal.Targets = new List<ModelTarget>();
 
         retVal.Clues = new List<string>() { "clue 1 is a long one", "clue 2 is even longer " };
 
@@ -40,7 +49,14 @@ public class ModelLevelMaster : MonoBehaviour {
         retVal.Targets.Add(mt2);
         retVal.Targets.Add(mt3);
 
+        */
 
-        return retVal;
+
+        return _levelsList.Levels[0];
     }
+}
+
+[Serializable]
+public class LevelsList {
+    public ModelLevelData[] Levels;
 }
