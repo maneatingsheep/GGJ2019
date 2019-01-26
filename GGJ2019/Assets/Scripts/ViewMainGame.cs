@@ -14,6 +14,8 @@ public class ViewMainGame : MonoBehaviour {
     public RectTransform MainBuilding;
     public ViewTarget TargetPrefab;
     private List<ViewTarget> _targets;
+    public Sprite[] Characters;
+    public Sprite[] Curtains;
 
     public float RotateFiltersAnimationDuration;
     public AnimationCurve RotateFiltersAnimationCurve;
@@ -48,12 +50,16 @@ public class ViewMainGame : MonoBehaviour {
 
     private bool _textsInited;
 
+    public Button ShootButton;
+
     internal void Init() {
         //ViewClueButton.EButtonPressed += ShowPropFromButton;
     }
 
     public void InitLevel(ModelLevelData levelData) {
-        
+        ShootButton.interactable = false;
+        NormalCrosshairs.SetActive(true);
+        RedCrosshairs.SetActive(false);
 
         if(_targets != null) {
             for (int i = 0; i < _targets.Count; i++) {
@@ -71,7 +77,9 @@ public class ViewMainGame : MonoBehaviour {
         _targets = new List<ViewTarget>();
         for (int i = 0; i < levelData.Targets.Length; i++) {
             ViewTarget newTarget = Instantiate(TargetPrefab, MainBuilding);
-            newTarget.Fill(levelData.Targets[i]);
+            Sprite randomCharacter = Characters[UnityEngine.Random.Range(0, Characters.Length - 1)];
+            Sprite randomCurtain = Curtains[UnityEngine.Random.Range(0, Curtains.Length - 1)];
+            newTarget.Fill(levelData.Targets[i], randomCharacter, randomCurtain);
             _targets.Add(newTarget);
         }
 
@@ -241,6 +249,7 @@ public class ViewMainGame : MonoBehaviour {
 
                 NormalCrosshairs.SetActive(SelectedWindow == -1);
                 RedCrosshairs.SetActive(SelectedWindow > -1);
+                ShootButton.interactable = SelectedWindow > -1;
             }
         } else {
             _mouseDown = false;

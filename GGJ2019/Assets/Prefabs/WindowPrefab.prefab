@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ce24872815840d094719dc85e7c232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharaterPool: []
   Character: {fileID: 114503307047091428}
+  Curtain: {fileID: 114913591978120298}
   ClueText: {fileID: 114710823381849886}
 --- !u!114 &114503307047091428
 MonoBehaviour:

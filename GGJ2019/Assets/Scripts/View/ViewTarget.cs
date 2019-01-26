@@ -5,18 +5,19 @@ using TMPro;
 using UnityEngine.UI;
 
 public class ViewTarget : MonoBehaviour {
-
-    public Sprite[] CharaterPool;
-    public Image Character; 
+    
+    public Image Character;
+    public Image Curtain;
 
     internal ModelTarget Target;
     public TextMeshProUGUI ClueText;
     private float _timeOfPointDown;
     private Vector3 _pointDownPos;
 
-    public void Fill(ModelTarget modelTarget) {
+    public void Fill(ModelTarget modelTarget, Sprite characterSprite, Sprite curtainSprite) {
         Target = modelTarget;
-        //Character.sprite = CharaterPool[Random.Range(0, CharaterPool.Length)];
+        Character.sprite = characterSprite;
+        Curtain.sprite = curtainSprite;
 
         IsActive = true;
     }
