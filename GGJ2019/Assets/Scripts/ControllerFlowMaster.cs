@@ -14,7 +14,6 @@ public class ControllerFlowMaster : MonoBehaviour {
     public ViewLevelEnd LevelOverScreen;
     public ViewGameOver GameOverScreen;
 
-    public SoundMaster SoundMasterRef;
 
     private ModelLevelData _levelData;
 

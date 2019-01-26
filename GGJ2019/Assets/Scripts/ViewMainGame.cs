@@ -121,7 +121,9 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     private void ShowNextClue() {
-        
+
+        SoundMaster.Instance.PlaySingleSound(SoundMaster.SoundTypes.Clue);
+
         for (int i = 0; i < _clues.Count; i++) {
             _clues[i].gameObject.SetActive(i <= _currentClue);
         }
@@ -134,6 +136,8 @@ public class ViewMainGame : MonoBehaviour {
     }
     
     public void ShowNextProp(bool isUp) {
+        SoundMaster.Instance.PlaySingleSound(SoundMaster.SoundTypes.Scope);
+
         if (isUp) {
             _currentPropIndex++; 
         } else {
@@ -159,6 +163,8 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     public void Shoot() {
+
+        SoundMaster.Instance.PlaySingleSound(SoundMaster.SoundTypes.Shot);
 
         GameOver(SelectedWindow > -1 && _levelData.Targets[SelectedWindow].IsCorrect);
         
