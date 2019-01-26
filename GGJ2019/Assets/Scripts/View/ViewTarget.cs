@@ -14,7 +14,7 @@ public class ViewTarget : MonoBehaviour {
 
     public void Fill(ModelTarget modelTarget) {
         Target = modelTarget;
-        Character.sprite = CharaterPool[Random.Range(0, CharaterPool.Length)];
+        //Character.sprite = CharaterPool[Random.Range(0, CharaterPool.Length)];
 
     }
 
@@ -26,5 +26,13 @@ public class ViewTarget : MonoBehaviour {
             }
         }
         Debug.Log("Target " + gameObject.name + " doesn't have a value for " + clue + "!");
+    }
+
+    public void PointerDown() {
+
+    }
+
+    public void PointerUp() {
+
     }
 }
