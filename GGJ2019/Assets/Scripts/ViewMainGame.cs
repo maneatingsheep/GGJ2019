@@ -43,11 +43,23 @@ public class ViewMainGame : MonoBehaviour {
     public GameObject NormalCrosshairs;
     public GameObject RedCrosshairs;
 
+    private bool _textsInited;
+
     internal void Init() {
         //ViewClueButton.EButtonPressed += ShowPropFromButton;
     }
 
     public void InitLevel(ModelLevelData levelData) {
+        if(_targets != null) {
+            for (int i = 0; i < _targets.Count; i++) {
+                Destroy(_targets[i].gameObject);
+            }
+            
+            for (int i = 0; i < _clues.Count; i++) {
+                Destroy(_clues[i].gameObject);
+            }
+        }
+
         _levelData = levelData;
         MainBuilding.anchoredPosition = Vector2.one;
         TimerRef.StopTimer();
@@ -57,10 +69,13 @@ public class ViewMainGame : MonoBehaviour {
             newTarget.Fill(levelData.Targets[i]);
             _targets.Add(newTarget);
         }
-        
+
         for (var i = 0; i < levelData.Targets[0].Props.Length; i++) {
             FilterTexts[i].text = GetFilterText(levelData.Targets[0].Props[i]);
-            StartCoroutine(FilterTexts[i].Fix());
+            if(!_textsInited) {
+                StartCoroutine(FilterTexts[i].Fix());
+            }
+            _textsInited = true;
         }
 
         _clues = new List<TextMeshProUGUI>();

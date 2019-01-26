@@ -52,6 +52,7 @@ namespace TMPro.Examples
         /// </summary>
         /// <param name="textComponent"></param>
         /// <returns></returns>
+        private bool _resetWarpText;
         public IEnumerator WarpText()
         {
             VertexCurve.preWrapMode = WrapMode.Clamp;
@@ -67,7 +68,7 @@ namespace TMPro.Examples
             float old_CurveScale = CurveScale;
             AnimationCurve old_curve = CopyAnimationCurve(VertexCurve);
 
-            while (true)
+            while (!_resetWarpText)
             {
                 if (!m_TextComponent.havePropertiesChanged && old_CurveScale == CurveScale && old_curve.keys[1].value == VertexCurve.keys[1].value)
                 {
