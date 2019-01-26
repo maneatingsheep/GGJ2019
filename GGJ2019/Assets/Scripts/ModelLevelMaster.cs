@@ -9,7 +9,7 @@ public class ModelLevelMaster : MonoBehaviour {
     public TextAsset LevelsJSON;
 
     private LevelsList _levelsList;
-
+    private int _currentLevel;
 
 
     // Use this for initialization
@@ -29,12 +29,13 @@ public class ModelLevelMaster : MonoBehaviour {
 
         }
 
+        _currentLevel = 0;
     }
 	
 	
 
     internal ModelLevelData GetNextLevel() {
-        return _levelsList.Levels[0];
+        return _levelsList.Levels[_currentLevel++];
     }
 }
 

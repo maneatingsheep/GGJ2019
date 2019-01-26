@@ -14,11 +14,20 @@ public class ControllerFlowMaster : MonoBehaviour {
     private void InitAll() {
         MainView.Init();
         LevelMaster.Init();
-        InitLevel();
-    }
-
-    private void InitLevel() {
+        MainView.ELevelOver += LevelOver;
 
         MainView.InitLevel(LevelMaster.GetNextLevel());
     }
+
+    private void LevelOver(bool obj) {
+        ModelLevelData levelData = LevelMaster.GetNextLevel();
+        
+        if (levelData != null ) {
+            MainView.InitLevel(levelData);
+        } else {
+
+        }
+    }
+
+    
 }

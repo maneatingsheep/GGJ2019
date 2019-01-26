@@ -27,6 +27,12 @@ public class ViewMainGame : MonoBehaviour {
     public Timer TimerRef;
     public float ClueEveryXSecs;
 
+    public event Action<bool> ELevelOver;
+
+    internal void Init() {
+        ViewClueButton.EButtonPressed += ShowPropFromButton;
+    }
+
     public void InitLevel(ModelLevelData levelData) {
         _levelData = levelData;
         MainBuilding.anchoredPosition = Vector2.one;
@@ -51,6 +57,9 @@ public class ViewMainGame : MonoBehaviour {
             newClue.text = levelData.Clues[i];
             _clues.Add(newClue);
         }
+        _currentPropIndex = 0;
+        ShowCurrentProp();
+
         _currentClue = 0;
         ShowNextClue();
         TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
@@ -68,9 +77,7 @@ public class ViewMainGame : MonoBehaviour {
         }
     }
 
-    internal void Init() {
-        ViewClueButton.EButtonPressed += ShowPropFromButton;
-    }
+    
 
     public void ShowPropFromButton(ViewClueButton button) {
         _currentPropIndex = _propButtons.IndexOf(button);
@@ -96,6 +103,9 @@ public class ViewMainGame : MonoBehaviour {
         }
     }
 
+    public void Shoot() {
+        ELevelOver(true);
+    }
 
     private Vector3 _lastMousePos;
     private bool _mouseDown;
