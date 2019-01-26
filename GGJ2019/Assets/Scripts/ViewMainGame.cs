@@ -50,6 +50,8 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     public void InitLevel(ModelLevelData levelData) {
+        
+
         if(_targets != null) {
             for (int i = 0; i < _targets.Count; i++) {
                 Destroy(_targets[i].gameObject);
@@ -75,8 +77,8 @@ public class ViewMainGame : MonoBehaviour {
             if(!_textsInited) {
                 StartCoroutine(FilterTexts[i].Fix());
             }
-            _textsInited = true;
         }
+        _textsInited = true;
 
         _clues = new List<TextMeshProUGUI>();
         for (int i = 0; i < levelData.Clues.Length; i++) {
@@ -91,7 +93,11 @@ public class ViewMainGame : MonoBehaviour {
         ShowCurrentProp();
 
         ShowNextClue();
-        
+
+        _pendingFilterSpins = 0;
+        FiltersContainer.rotation = Quaternion.Euler(0, 0, 0);
+
+
 
     }
 
@@ -148,6 +154,7 @@ public class ViewMainGame : MonoBehaviour {
     public void Shoot() {
 
         GameOver(SelectedWindow > -1 && _levelData.Targets[SelectedWindow].IsCorrect);
+        
     }
 
     private Vector3 _previousFiltersRotation;
