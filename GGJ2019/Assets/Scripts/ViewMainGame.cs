@@ -13,9 +13,7 @@ public class ViewMainGame : MonoBehaviour {
     public ViewTarget TargetPrefab;
     private List<ViewTarget> _targets;
 
-    public RectTransform ButtonsContainer;
-    public ViewClueButton ButtonPrefab;
-    private List<ViewClueButton> _propButtons;
+    public TextMeshProUGUI[] FilterTexts;
 
     public RectTransform ClueContainer;
     public TextMeshProUGUI CluePrefab;
@@ -30,7 +28,7 @@ public class ViewMainGame : MonoBehaviour {
     public event Action<bool> ELevelOver;
 
     internal void Init() {
-        ViewClueButton.EButtonPressed += ShowPropFromButton;
+        //ViewClueButton.EButtonPressed += ShowPropFromButton;
     }
 
     public void InitLevel(ModelLevelData levelData) {
@@ -44,11 +42,11 @@ public class ViewMainGame : MonoBehaviour {
             _targets.Add(newTarget);
         }
 
-        _propButtons = new List<ViewClueButton>();
+        Debug.Log(levelData.Targets[0].Props.Length);
+        Debug.Log(levelData.Targets[0].Props[0].Val);
+
         for (var i = 0; i < levelData.Targets[0].Props.Length; i++) {
-            ViewClueButton newButton = Instantiate(ButtonPrefab, ButtonsContainer);
-            newButton.FillButtonText(levelData.Targets[0].Props[i].Key);
-            _propButtons.Add(newButton);
+            FilterTexts[i].text = GetFilterText(levelData.Targets[0].Props[i]);
         }
 
         _clues = new List<TextMeshProUGUI>();
@@ -66,6 +64,18 @@ public class ViewMainGame : MonoBehaviour {
 
     }
 
+    private const int PREFERED_STRING_LENGTH = 14;
+    private string GetFilterText(Prop prop) {
+        string addedSpaces = "";
+        for (int i = 0; i < (PREFERED_STRING_LENGTH - prop.Key.Length) / 2; i++) {
+            addedSpaces += " ";
+        }
+        string retVal = string.Format("<color=#0000>.</color>{0}{1}{2}<color=#000>.</color>", addedSpaces, prop.Key, addedSpaces);
+
+
+        return retVal;
+    }
+
     private void ShowNextClue() {
         
         for (int i = 0; i < _clues.Count; i++) {
@@ -77,12 +87,7 @@ public class ViewMainGame : MonoBehaviour {
         }
     }
 
-    
 
-    public void ShowPropFromButton(ViewClueButton button) {
-        _currentPropIndex = _propButtons.IndexOf(button);
-        ShowCurrentProp();
-    }
 
    public void ShowNextProp(bool isUp) {
         if (isUp) {
