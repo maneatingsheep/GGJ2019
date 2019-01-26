@@ -7,6 +7,6 @@ public class ViewLevelEnd : MonoBehaviour {
     public TextMeshProUGUI ScoreText;
 
     public void Fill(int score) {
-        ScoreText.text = score.ToString("#,##0");
+        ScoreText.text = "Your score: " + score.ToString("#,##0");
     }
 }
