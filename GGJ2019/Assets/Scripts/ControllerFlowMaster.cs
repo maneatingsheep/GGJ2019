@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControllerFlowMaster : MonoBehaviour {
-    public enum GameStates { StartMenu, Game, GameOver};
+    public enum GameStates { StartMenu, Game, GameOver, LevelOver};
 
     public ViewMainGame MainView;
     public ModelLevelMaster LevelMaster;
+
+    public GameObject OpenScreen;
+
+    public GameObject LevelOverScreen;
+    public GameObject GameOverScreen;
 
     private GameStates _gameState;
 
@@ -21,20 +26,24 @@ public class ControllerFlowMaster : MonoBehaviour {
             switch (_gameState) {
                 case GameStates.StartMenu:
                     OpenScreen.SetActive(true);
-                    Invoke("StartGame", 3);
+                    //Invoke("StartGame", 3);
                     break;
                 case GameStates.Game:
                     OpenScreen.SetActive(false);
                     MainView.InitLevel(LevelMaster.GetNextLevel());
                     break;
                 case GameStates.GameOver:
+                    // fill game over
+                    break;
+                case GameStates.LevelOver:
+                    // fill level over
                     break;
             }
-
+            LevelOverScreen.SetActive(_gameState == GameStates.LevelOver);
+            GameOverScreen.SetActive(_gameState == GameStates.GameOver);
         }
     }
 
-    public GameObject OpenScreen;
 
     private void Awake() {
         InitAll();
@@ -63,5 +72,7 @@ public class ControllerFlowMaster : MonoBehaviour {
         }
     }
 
-    
+    public void EndLevelTransition() {
+        
+    }
 }
