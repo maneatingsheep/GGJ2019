@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using TMPro.Examples;
+using UnityEngine.UI;
 
 public class ViewMainGame : MonoBehaviour {
 
@@ -13,7 +15,7 @@ public class ViewMainGame : MonoBehaviour {
     public ViewTarget TargetPrefab;
     private List<ViewTarget> _targets;
 
-    public TextMeshProUGUI[] FilterTexts;
+    public WarpTextExample[] FilterTexts;
 
     public RectTransform ClueContainer;
     public TextMeshProUGUI CluePrefab;
@@ -26,6 +28,13 @@ public class ViewMainGame : MonoBehaviour {
     public float ClueEveryXSecs;
 
     public event Action<bool> ELevelOver;
+
+    public Text ScoreText;
+    public Text TimeLeftText;
+
+    float TimePortion;
+
+    
 
     internal void Init() {
         //ViewClueButton.EButtonPressed += ShowPropFromButton;
@@ -41,12 +50,10 @@ public class ViewMainGame : MonoBehaviour {
             newTarget.Fill(levelData.Targets[i]);
             _targets.Add(newTarget);
         }
-
-        Debug.Log(levelData.Targets[0].Props.Length);
-        Debug.Log(levelData.Targets[0].Props[0].Val);
-
+        
         for (var i = 0; i < levelData.Targets[0].Props.Length; i++) {
             FilterTexts[i].text = GetFilterText(levelData.Targets[0].Props[i]);
+            StartCoroutine(FilterTexts[i].Fix());
         }
 
         _clues = new List<TextMeshProUGUI>();
@@ -56,9 +63,11 @@ public class ViewMainGame : MonoBehaviour {
             _clues.Add(newClue);
         }
         _currentPropIndex = 0;
+        _currentClue = 0;
+        TimePortion = 1;
+
         ShowCurrentProp();
 
-        _currentClue = 0;
         ShowNextClue();
         TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
 
@@ -84,12 +93,12 @@ public class ViewMainGame : MonoBehaviour {
         _currentClue++;
         if(_currentClue < _clues.Count) {
             TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
+        } else {
+            GameOver(false);
         }
     }
-
-
-
-   public void ShowNextProp(bool isUp) {
+    
+    public void ShowNextProp(bool isUp) {
         if (isUp) {
             _currentPropIndex++; 
         } else {
@@ -109,7 +118,7 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     public void Shoot() {
-        ELevelOver(true);
+        GameOver(true);
     }
 
     private Vector3 _lastMousePos;
@@ -118,6 +127,9 @@ public class ViewMainGame : MonoBehaviour {
     private ModelLevelData _levelData;
     public ScopeContainer ScopeContainerRef;
 
+    private void GameOver(bool success) {
+        ELevelOver(success);
+    }
 
     private void Update() {
         if (Input.GetMouseButton(0)) {
@@ -141,6 +153,22 @@ public class ViewMainGame : MonoBehaviour {
             ShowNextProp(true);
         } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             ShowNextProp(false);
+        }
+
+        TimePortion = TimerRef.TimeLeft / ClueEveryXSecs;
+
+        if (_clues != null) {
+            TimeLeftText.text = TimePortion.ToString();
+            ScoreText.text = CurrentScore.ToString();
+        }
+        
+    }
+
+
+    public int CurrentScore {
+        get {
+            int fullClues = _clues.Count - _currentClue;
+            return Mathf.FloorToInt( fullClues * 100 + TimePortion * 10);
         }
     }
 }

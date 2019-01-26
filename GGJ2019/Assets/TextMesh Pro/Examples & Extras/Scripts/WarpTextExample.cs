@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 
 namespace TMPro.Examples
 {
@@ -20,10 +20,20 @@ namespace TMPro.Examples
             m_TextComponent = gameObject.GetComponent<TMP_Text>();
         }
 
+        public string text {
+            set {
+                m_TextComponent.text = value;
+            }
+            get {
+                return m_TextComponent.text;
+            }
+                 
+
+        }
 
         void Start()
         {
-            StartCoroutine(WarpText());
+            //StartCoroutine(WarpText());
         }
 
 
@@ -42,7 +52,7 @@ namespace TMPro.Examples
         /// </summary>
         /// <param name="textComponent"></param>
         /// <returns></returns>
-        IEnumerator WarpText()
+        public IEnumerator WarpText()
         {
             VertexCurve.preWrapMode = WrapMode.Clamp;
             VertexCurve.postWrapMode = WrapMode.Clamp;
@@ -139,6 +149,18 @@ namespace TMPro.Examples
 
                 yield return new WaitForSeconds(0.025f);
             }
+        }
+        
+        internal IEnumerator Fix() {
+            yield return StartCoroutine(WarpText());
+            /*print("1");
+            print(text);
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(1f);
+            m_TextComponent.alignment = TextAlignmentOptions.Left;
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(1f);
+            m_TextComponent.alignment = TextAlignmentOptions.Center;*/
         }
     }
 }

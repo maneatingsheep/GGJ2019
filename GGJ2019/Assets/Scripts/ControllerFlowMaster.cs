@@ -20,9 +20,11 @@ public class ControllerFlowMaster : MonoBehaviour {
             _gameState = value;
             switch (_gameState) {
                 case GameStates.StartMenu:
+                    OpenScreen.SetActive(true);
                     Invoke("StartGame", 3);
                     break;
                 case GameStates.Game:
+                    OpenScreen.SetActive(false);
                     MainView.InitLevel(LevelMaster.GetNextLevel());
                     break;
                 case GameStates.GameOver:
@@ -31,6 +33,8 @@ public class ControllerFlowMaster : MonoBehaviour {
 
         }
     }
+
+    public GameObject OpenScreen;
 
     private void Awake() {
         InitAll();
