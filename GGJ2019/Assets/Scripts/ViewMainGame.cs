@@ -19,6 +19,9 @@ public class ViewMainGame : MonoBehaviour {
     public AnimationCurve RotateFiltersAnimationCurve;
     public RectTransform FiltersContainer;
     public WarpTextExample[] FilterTexts;
+    public Color[] FilterColors;
+    public Color GrayTextColor;
+    public Image FilterColor;
 
     public RectTransform ClueContainer;
     public TextMeshProUGUI CluePrefab;
@@ -142,6 +145,10 @@ public class ViewMainGame : MonoBehaviour {
     public void ShowCurrentProp() {
         for (int i = 0; i < _targets.Count; i++) {
             _targets[i].ShowProp(_levelData.Targets[i].Props[_currentPropIndex].Key);
+        }
+        FilterColor.color = FilterColors[_currentPropIndex];
+        for (int i = 0; i < FilterTexts.Length; i++) {
+            FilterTexts[i].m_TextComponent.color = i == _currentPropIndex ? FilterColors[_currentPropIndex] : GrayTextColor;
         }
     }
 

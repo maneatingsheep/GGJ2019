@@ -8,7 +8,7 @@ namespace TMPro.Examples
     public class WarpTextExample : MonoBehaviour
     {
 
-        private TMP_Text m_TextComponent;
+        public TMP_Text m_TextComponent;
 
         public AnimationCurve VertexCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.25f, 2.0f), new Keyframe(0.5f, 0), new Keyframe(0.75f, 2.0f), new Keyframe(1, 0f));
         public float AngleMultiplier = 1.0f;
