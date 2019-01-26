@@ -15,6 +15,9 @@ public class ViewMainGame : MonoBehaviour {
     public ViewTarget TargetPrefab;
     private List<ViewTarget> _targets;
 
+    public float RotateFiltersAnimationDuration;
+    public AnimationCurve RotateFiltersAnimationCurve;
+    public RectTransform FiltersContainer;
     public WarpTextExample[] FilterTexts;
 
     public RectTransform ClueContainer;
@@ -30,7 +33,8 @@ public class ViewMainGame : MonoBehaviour {
     public event Action<bool> ELevelOver;
 
     public Text ScoreText;
-    public Text TimeLeftText;
+    //public Text TimeLeftText;
+    public Image FullTimer;
 
     float TimePortion;
 
@@ -107,6 +111,8 @@ public class ViewMainGame : MonoBehaviour {
 
         }
         _currentPropIndex %=  _levelData.Targets[0].Props.Length;
+        _pendingFilterSpins += isUp ? 1 : -1;
+        StartCoroutine(RotateFilters(isUp));
 
         ShowCurrentProp();
     }
@@ -119,6 +125,30 @@ public class ViewMainGame : MonoBehaviour {
 
     public void Shoot() {
         GameOver(true);
+    }
+
+    private Vector3 _previousFiltersRotation;
+    private int _pendingFilterSpins;
+    private bool _spinning;
+    private IEnumerator RotateFilters(bool clockwise) {
+        if (_spinning) yield break;
+        _spinning = true;
+        _previousFiltersRotation = FiltersContainer.rotation.eulerAngles;
+        float targetRotationZ = _previousFiltersRotation.z + (clockwise ? 60 : -60);
+        float startTime = Time.time;
+        while(Time.time - startTime < RotateFiltersAnimationDuration) {
+            float z = (Time.time - startTime) / RotateFiltersAnimationDuration;
+            Quaternion rotation = Quaternion.Euler(0, 0, _previousFiltersRotation.z + (clockwise ? 60 : -60) * z);
+            FiltersContainer.rotation = rotation;
+            yield return null;
+        }
+        FiltersContainer.rotation = Quaternion.Euler(0, 0, targetRotationZ);
+        _previousFiltersRotation = FiltersContainer.rotation.eulerAngles;
+        _pendingFilterSpins -= _pendingFilterSpins > 0 ? 1:-1 ;
+        _spinning = false;
+        if(_pendingFilterSpins > 0) {
+            StartCoroutine(RotateFilters(_pendingFilterSpins > 0));
+        }
     }
 
     private Vector3 _lastMousePos;
@@ -158,12 +188,11 @@ public class ViewMainGame : MonoBehaviour {
         TimePortion = TimerRef.TimeLeft / ClueEveryXSecs;
 
         if (_clues != null) {
-            TimeLeftText.text = TimePortion.ToString();
+            FullTimer.fillAmount = TimePortion;
+            //TimeLeftText.text = TimePortion.ToString();
             ScoreText.text = CurrentScore.ToString();
         }
-        
     }
-
 
     public int CurrentScore {
         get {
