@@ -34,7 +34,7 @@ public class ViewMainGame : MonoBehaviour {
 
     float TimePortion;
 
-    
+    public int SelectedWindow = -1;
 
     internal void Init() {
         //ViewClueButton.EButtonPressed += ShowPropFromButton;
@@ -143,6 +143,29 @@ public class ViewMainGame : MonoBehaviour {
                 _mouseDown = true;
                 
                 _lastMousePos = Input.mousePosition;
+
+                int horPos = -1;
+                int verPos = -1;
+
+                if (MainBuilding.anchoredPosition.x > 100) {
+                    horPos = 0;
+                } else if (MainBuilding.anchoredPosition.x < -100) {
+                    horPos = 1;
+                }
+
+
+                float minYVal = -650;
+                float fullWindow = 600;
+                float activeWindow = 350;
+
+                float fromBottom = MainBuilding.anchoredPosition.y - minYVal;
+                verPos = Mathf.FloorToInt(fromBottom / fullWindow);
+                if (fromBottom - verPos * fullWindow > activeWindow) {
+                    verPos = -1;
+                }
+
+                SelectedWindow = (horPos > -1 && verPos > -1) ?(verPos * 2 + horPos) :-1;
+                
             }
         } else {
             _mouseDown = false;
