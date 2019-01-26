@@ -111,19 +111,22 @@ public class ViewMainGame : MonoBehaviour {
     private bool _mouseDown;
     internal Vector2 MOVE_SCALE_VECTOR = new Vector2(2f, 3f);
     private ModelLevelData _levelData;
+    public ScopeContainer ScopeContainerRef;
+
 
     private void Update() {
         if (Input.GetMouseButton(0)) {
-
-            if (_mouseDown) {
-                Vector2 newPos = MainBuilding.anchoredPosition - (_lastMousePos - Input.mousePosition) * MOVE_SCALE_VECTOR;
-                newPos = Vector2.Min(newPos, MaxBuildingAnchoredPosition);
-                newPos = Vector2.Max(newPos, MinBuildingAnchoredPosition);
-                MainBuilding.anchoredPosition = newPos;
+            if (ScopeContainerRef.IsOverScope){
+                if (_mouseDown) {
+                    Vector2 newPos = MainBuilding.anchoredPosition - (_lastMousePos - Input.mousePosition) * MOVE_SCALE_VECTOR;
+                    newPos = Vector2.Min(newPos, MaxBuildingAnchoredPosition);
+                    newPos = Vector2.Max(newPos, MinBuildingAnchoredPosition);
+                    MainBuilding.anchoredPosition = newPos;
+                }
+                _mouseDown = true;
+                
+                _lastMousePos = Input.mousePosition;
             }
-            _mouseDown = true;
-
-            _lastMousePos = Input.mousePosition;
         } else {
             _mouseDown = false;
         }
