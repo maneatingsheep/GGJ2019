@@ -7,8 +7,8 @@ public class ViewLevelEnd : MonoBehaviour {
     public TextMeshProUGUI WinLoseText;
     public TextMeshProUGUI ScoreText;
 
-    public void Fill(int score, bool isWin) {
-        WinLoseText.text = isWin ? "win!" : "lose!";
+    public void Fill(int score) {
+        WinLoseText.text = "good job!";
         ScoreText.text = score.ToString("#,##0");
     }
 }

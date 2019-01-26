@@ -76,8 +76,12 @@ public class ViewMainGame : MonoBehaviour {
         ShowCurrentProp();
 
         ShowNextClue();
-        TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
+        
 
+    }
+
+    public void StartCountDown() {
+        TimerRef.StartTimer(ClueEveryXSecs, ShowNextClue);
     }
 
     private const int PREFERED_STRING_LENGTH = 14;

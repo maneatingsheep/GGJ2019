@@ -11,8 +11,8 @@ public class ControllerFlowMaster : MonoBehaviour {
 
     public GameObject OpenScreen;
 
-    public GameObject LevelOverScreen;
-    public GameObject GameOverScreen;
+    public ViewLevelEnd LevelOverScreen;
+    public ViewGameOver GameOverScreen;
 
     private GameStates _gameState;
 
@@ -30,7 +30,6 @@ public class ControllerFlowMaster : MonoBehaviour {
                     break;
                 case GameStates.Game:
                     OpenScreen.SetActive(false);
-                    MainView.InitLevel(LevelMaster.GetNextLevel());
                     break;
                 case GameStates.GameOver:
                     // fill game over
@@ -39,8 +38,8 @@ public class ControllerFlowMaster : MonoBehaviour {
                     // fill level over
                     break;
             }
-            LevelOverScreen.SetActive(_gameState == GameStates.LevelOver);
-            GameOverScreen.SetActive(_gameState == GameStates.GameOver);
+            LevelOverScreen.gameObject.SetActive(_gameState == GameStates.LevelOver);
+            GameOverScreen.gameObject.SetActive(_gameState == GameStates.GameOver);
         }
     }
 
@@ -59,20 +58,26 @@ public class ControllerFlowMaster : MonoBehaviour {
     }
 
     public void StartGame() {
-        GameState = GameStates.Game;
+        ModelLevelData levelData = LevelMaster.GetNextLevel();
+        MainView.InitLevel(levelData);
+        EndLevelTransition();
     }
 
     private void LevelOver(bool isSuccess) {
         ModelLevelData levelData = LevelMaster.GetNextLevel();
         
-        if (levelData != null ) {
+        if (isSuccess && levelData != null ) {
+            GameState = GameStates.LevelOver;
             MainView.InitLevel(levelData);
+            LevelOverScreen.Fill(MainView.CurrentScore);
         } else {
             GameState = GameStates.GameOver;
+            GameOverScreen.Fill(MainView.CurrentScore, isSuccess);
         }
     }
 
     public void EndLevelTransition() {
-        
+        MainView.StartCountDown();
+        GameState = GameStates.Game;
     }
 }
