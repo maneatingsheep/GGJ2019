@@ -36,8 +36,7 @@ public class ControllerFlowMaster : MonoBehaviour {
                     OpenScreen.SetActive(false);
                     break;
                 case GameStates.GameOver:
-                    LevelMaster.Init();
-                    LevelMaster.ResetLevels();
+                   
                     break;
                 case GameStates.LevelOver:
                     // fill level over
@@ -56,7 +55,6 @@ public class ControllerFlowMaster : MonoBehaviour {
     private void InitAll() {
         MainView.Init();
         LevelMaster.Init();
-
         _levelData = LevelMaster.GetNextLevel();
 
         MainView.ELevelOver += LevelOver;
@@ -80,6 +78,9 @@ public class ControllerFlowMaster : MonoBehaviour {
         } else {
             GameState = GameStates.GameOver;
             GameOverScreen.Fill(MainView.CurrentScore, isSuccess);
+            LevelMaster.Init();
+            LevelMaster.ResetLevels();
+            _levelData = LevelMaster.GetNextLevel();
         }
     }
 
