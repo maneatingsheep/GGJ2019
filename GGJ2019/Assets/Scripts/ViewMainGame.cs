@@ -124,7 +124,8 @@ public class ViewMainGame : MonoBehaviour {
     }
 
     public void Shoot() {
-        GameOver(true);
+
+        GameOver(SelectedWindow > -1 && _levelData.Targets[SelectedWindow].IsCorrect);
     }
 
     private Vector3 _previousFiltersRotation;
