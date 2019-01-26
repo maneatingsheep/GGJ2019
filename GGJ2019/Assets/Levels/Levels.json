@@ -24,16 +24,20 @@
               "Val": "Married"
             },
             {
-              "Key": "Nationality",
-              "Val": "USA"
-            },
-            {
               "Key": "Ethnicity",
               "Val": "Caucasian"
             },
             {
               "Key": "Religion",
               "Val": "Secular"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Carpenter"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Private Car"
             }
           ]
         },
@@ -52,16 +56,16 @@
               "Val": "Single"
             },
             {
-              "Key": "Nationality",
-              "Val": "Japan"
-            },
-            {
               "Key": "Ethnicity",
               "Val": "Asian"
             },
             {
               "Key": "Religion",
               "Val": "Secular"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Sailor"
             }
           ]
         },
@@ -80,16 +84,16 @@
               "Val": "Single"
             },
             {
-              "Key": "Nationality",
-              "Val": "Poland"
-            },
-            {
               "Key": "Ethnicity",
               "Val": "Caucasian"
             },
             {
               "Key": "Religion",
               "Val": "Jewish"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Software Developer"
             }
           ]
         },
@@ -108,16 +112,16 @@
               "Val": "Divorced"
             },
             {
-              "Key": "Nationality",
-              "Val": "UK"
-            },
-            {
               "Key": "Ethnicity",
               "Val": "African"
             },
             {
               "Key": "Religion",
               "Val": "Christian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Clerk"
             }
           ]
         },
@@ -125,7 +129,7 @@
           "Props": [
             {
               "Key": "Gender",
-              "Val": "Female"
+              "Val": "Male"
             },
             {
               "Key": "Age",
@@ -136,16 +140,16 @@
               "Val": "Divorced"
             },
             {
-              "Key": "Nationality",
-              "Val": "France"
-            },
-            {
               "Key": "Ethnicity",
               "Val": "Caucasian"
             },
             {
               "Key": "Religion",
               "Val": "Muslim"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Musician"
             }
           ]
         },
@@ -164,16 +168,16 @@
               "Val": "Married"
             },
             {
-              "Key": "Nationality",
-              "Val": "Poland"
-            },
-            {
               "Key": "Ethnicity",
               "Val": "Middle Eastern"
             },
             {
               "Key": "Religion",
               "Val": "Christian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Student"
             }
           ]
         }
@@ -181,19 +185,43 @@
     },
     {
       "Clues": [
-        "can read musical notes",
-        "has kids",
-        "has no living grandparents",
-        "is a female",
-        "is not religious"
+        "likes their work because of the people",
+        "pays a mortgage",
+        "is sensitive to UV light",
+        "is Asian by enthnicity",
+        "did not attend any school after 18"
       ],
       "Targets": [
         {
           "Props": [
             {
-              "Key": "Gender",
-              "Val": "Female"
+              "Key": "Age",
+              "Val": "35-50"
             },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Japan"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Asian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Clerk"
+            },
+            {
+              "Key": "Education",
+              "Val": "Highschool"
+            }
+          ]
+        },
+        {
+          "Props": [
             {
               "Key": "Age",
               "Val": "51-60"
@@ -204,7 +232,445 @@
             },
             {
               "Key": "Nationality",
+              "Val": "France"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "African"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Driver"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "18-24"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Single"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Egypt"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "African"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Electrician"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "35-50"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Single"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Cuba"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Caucasian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Social Worker"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "25-34"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Divorced"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Russia"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Asian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Student"
+            },
+            {
+              "Key": "Education",
+              "Val": "Advanced Academic"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "51-60"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Widowed"
+            },
+            {
+              "Key": "Nationality",
               "Val": "USA"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Asian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Police"
+            },
+            {
+              "Key": "Education",
+              "Val": "Proffessional School"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Clues": [
+        "owns a gamer PC",
+        "smokes weed",
+        "speeks English fluently",
+        "uses public transportation",
+        "goes to church"
+      ],
+      "Targets": [
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Male"
+            },
+            {
+              "Key": "Age",
+              "Val": "13-17"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "USA"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Christian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Zoo-keeper"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Bus/Metro"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Age",
+              "Val": "25-34"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Brazil"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Christian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Musician"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Cycling"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Age",
+              "Val": "18-24"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Russia"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Secular"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Waiter"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Bus/Metro"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Male"
+            },
+            {
+              "Key": "Age",
+              "Val": "25-34"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "USA"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Hindu"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Lawyer"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Private Car"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Age",
+              "Val": "25-34"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "UK"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Christian"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Model"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Helicopter"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Male"
+            },
+            {
+              "Key": "Age",
+              "Val": "51-60"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Israel"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Jewish"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Medical Doctor"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Taxi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Clues": [
+        "plays neighborhood basketball ",
+        "loves Gefilte Fish",
+        "gets fit by commute",
+        "is not married currently",
+        "does not identify with any gender"
+      ],
+      "Targets": [
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Non-Binary"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Single"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Portuguese"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Secular"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Cycling"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Portuguese"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Jewish"
+            },
+            {
+              "Key": "Education",
+              "Val": "Proffessional School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Taxi"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "African"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Muslim"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Cycling"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Female"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "Turk"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Muslim"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Walking"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Male"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Single"
             },
             {
               "Key": "Ethnicity",
@@ -212,7 +678,182 @@
             },
             {
               "Key": "Religion",
-              "Val": "Secular"
+              "Val": "Jewish"
+            },
+            {
+              "Key": "Education",
+              "Val": "Elementary"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Walking"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Gender",
+              "Val": "Male"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Divorced"
+            },
+            {
+              "Key": "Ethnicity",
+              "Val": "African"
+            },
+            {
+              "Key": "Religion",
+              "Val": "Christian"
+            },
+            {
+              "Key": "Education",
+              "Val": "Proffessional School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Bus/Metro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Clues": [
+        "listens to podcasts on the way to work",
+        "is a Brexit supporter",
+        "fights with the father of their kids",
+        "works in the local university",
+        "is 39 years old"
+      ],
+      "Targets": [
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "35-50"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "UK"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Teacher"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Walking"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "25-34"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Divorced"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "UK"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Preacher"
+            },
+            {
+              "Key": "Education",
+              "Val": "Graduate School"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Cycling"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "18-24"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Married"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "France"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Police"
+            },
+            {
+              "Key": "Education",
+              "Val": "Elementary"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Taxi"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "25-34"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Single"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "Norway"
+            },
+            {
+              "Key": "Proffession",
+              "Val": "Sailor"
+            },
+            {
+              "Key": "Education",
+              "Val": "Highschool"
+            },
+            {
+              "Key": "Transportation",
+              "Val": "Bus/Metro"
+            }
+          ]
+        },
+        {
+          "Props": [
+            {
+              "Key": "Age",
+              "Val": "35-50"
+            },
+            {
+              "Key": "Maritial Status",
+              "Val": "Widowed"
+            },
+            {
+              "Key": "Nationality",
+              "Val": "USA"
             },
             {
               "Key": "Proffession",
@@ -231,188 +872,16 @@
         {
           "Props": [
             {
-              "Key": "Gender",
-              "Val": "Male"
-            },
-            {
-              "Key": "Age",
-              "Val": "18-24"
-            },
-            {
-              "Key": "Maritial Status",
-              "Val": "Single"
-            },
-            {
-              "Key": "Nationality",
-              "Val": "Japan"
-            },
-            {
-              "Key": "Ethnicity",
-              "Val": "Asian"
-            },
-            {
-              "Key": "Religion",
-              "Val": "Secular"
-            },
-            {
-              "Key": "Proffession",
-              "Val": "Sailor"
-            },
-            {
-              "Key": "Education",
-              "Val": "Elementary"
-            },
-            {
-              "Key": "Transportation",
-              "Val": "Bus/Metro"
-            }
-          ]
-        },
-        {
-          "Props": [
-            {
-              "Key": "Gender",
-              "Val": "Male"
-            },
-            {
               "Key": "Age",
               "Val": "25-34"
             },
             {
               "Key": "Maritial Status",
-              "Val": "Single"
-            },
-            {
-              "Key": "Nationality",
-              "Val": "Poland"
-            },
-            {
-              "Key": "Ethnicity",
-              "Val": "Caucasian"
-            },
-            {
-              "Key": "Religion",
-              "Val": "Jewish"
-            },
-            {
-              "Key": "Proffession",
-              "Val": "Tecacher"
-            },
-            {
-              "Key": "Education",
-              "Val": "Graduate School"
-            },
-            {
-              "Key": "Transportation",
-              "Val": "Bus/Metro"
-            }
-          ]
-        },
-        {
-          "Props": [
-            {
-              "Key": "Gender",
-              "Val": "Female"
-            },
-            {
-              "Key": "Age",
-              "Val": "35-50"
-            },
-            {
-              "Key": "Maritial Status",
               "Val": "Divorced"
             },
             {
               "Key": "Nationality",
-              "Val": "UK"
-            },
-            {
-              "Key": "Ethnicity",
-              "Val": "African"
-            },
-            {
-              "Key": "Religion",
-              "Val": "Christian"
-            },
-            {
-              "Key": "Proffession",
-              "Val": "Clerk"
-            },
-            {
-              "Key": "Education",
-              "Val": "Advanced Academic"
-            },
-            {
-              "Key": "Transportation",
-              "Val": "Private Car"
-            }
-          ]
-        },
-        {
-          "Props": [
-            {
-              "Key": "Gender",
-              "Val": "Female"
-            },
-            {
-              "Key": "Age",
-              "Val": "61-80"
-            },
-            {
-              "Key": "Maritial Status",
-              "Val": "Divorced"
-            },
-            {
-              "Key": "Nationality",
-              "Val": "France"
-            },
-            {
-              "Key": "Ethnicity",
-              "Val": "Caucasian"
-            },
-            {
-              "Key": "Religion",
-              "Val": "Muslim"
-            },
-            {
-              "Key": "Proffession",
-              "Val": "Musician"
-            },
-            {
-              "Key": "Education",
-              "Val": "Highschool"
-            },
-            {
-              "Key": "Transportation",
-              "Val": "Taxi"
-            }
-          ]
-        },
-        {
-          "Props": [
-            {
-              "Key": "Gender",
-              "Val": "Non-Binary"
-            },
-            {
-              "Key": "Age",
-              "Val": "18-24"
-            },
-            {
-              "Key": "Maritial Status",
-              "Val": "Married"
-            },
-            {
-              "Key": "Nationality",
               "Val": "Poland"
-            },
-            {
-              "Key": "Ethnicity",
-              "Val": "Middle Eastern"
-            },
-            {
-              "Key": "Religion",
-              "Val": "Christian"
             },
             {
               "Key": "Proffession",
@@ -424,7 +893,7 @@
             },
             {
               "Key": "Transportation",
-              "Val": "Cycling"
+              "Val": "Bus/Metro"
             }
           ]
         }
