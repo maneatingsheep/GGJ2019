@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ViewTarget : MonoBehaviour {
+
+    public Sprite[] CharaterPool;
+    public Image Character; 
 
     internal ModelTarget Target;
     public TextMeshProUGUI ClueText;
 
     public void Fill(ModelTarget modelTarget) {
         Target = modelTarget;
+        Character.sprite = CharaterPool[Random.Range(0, CharaterPool.Length)];
 
     }
 
