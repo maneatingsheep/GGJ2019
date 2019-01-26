@@ -94,6 +94,7 @@ public class ViewMainGame : MonoBehaviour {
         _clues = new List<TextMeshProUGUI>();
         for (int i = 0; i < levelData.Clues.Length; i++) {
             TextMeshProUGUI newClue = Instantiate(CluePrefab, ClueContainer);
+            newClue.transform.SetSiblingIndex(0);
             newClue.text = levelData.Clues[i];
             _clues.Add(newClue);
         }
@@ -274,7 +275,7 @@ public class ViewMainGame : MonoBehaviour {
     public int CurrentScore {
         get {
             int fullClues = _clues.Count - _currentClue;
-            return Mathf.FloorToInt( fullClues * 100 + TimePortion * 10);
+            return Mathf.FloorToInt( fullClues * 500 + TimePortion * 100);
         }
     }
 }
