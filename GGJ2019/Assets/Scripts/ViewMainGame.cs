@@ -35,7 +35,7 @@ public class ViewMainGame : MonoBehaviour {
 
     public event Action<bool> ELevelOver;
 
-    public Text ScoreText;
+    public TextMeshProUGUI ScoreText;
     //public Text TimeLeftText;
     public Image FullTimer;
 
