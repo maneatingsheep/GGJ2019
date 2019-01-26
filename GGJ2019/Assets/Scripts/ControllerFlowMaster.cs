@@ -14,6 +14,8 @@ public class ControllerFlowMaster : MonoBehaviour {
     public ViewLevelEnd LevelOverScreen;
     public ViewGameOver GameOverScreen;
 
+    private ModelLevelData _levelData;
+
     private GameStates _gameState;
 
     public GameStates GameState {
@@ -51,6 +53,9 @@ public class ControllerFlowMaster : MonoBehaviour {
     private void InitAll() {
         MainView.Init();
         LevelMaster.Init();
+
+        _levelData = LevelMaster.GetNextLevel();
+
         MainView.ELevelOver += LevelOver;
         GameState = GameStates.StartMenu;
 
@@ -58,17 +63,16 @@ public class ControllerFlowMaster : MonoBehaviour {
     }
 
     public void StartGame() {
-        ModelLevelData levelData = LevelMaster.GetNextLevel();
-        MainView.InitLevel(levelData);
+        MainView.InitLevel(_levelData);
         EndLevelTransition();
     }
 
     private void LevelOver(bool isSuccess) {
-        ModelLevelData levelData = LevelMaster.GetNextLevel();
+        _levelData = LevelMaster.GetNextLevel();
         
-        if (isSuccess && levelData != null ) {
+        if (isSuccess && _levelData != null ) {
             GameState = GameStates.LevelOver;
-            MainView.InitLevel(levelData);
+            
             LevelOverScreen.Fill(MainView.CurrentScore);
         } else {
             GameState = GameStates.GameOver;
