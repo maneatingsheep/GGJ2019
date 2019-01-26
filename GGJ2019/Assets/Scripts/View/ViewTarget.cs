@@ -11,11 +11,27 @@ public class ViewTarget : MonoBehaviour {
 
     internal ModelTarget Target;
     public TextMeshProUGUI ClueText;
+    private float _timeOfPointDown;
+    private Vector3 _pointDownPos;
 
     public void Fill(ModelTarget modelTarget) {
         Target = modelTarget;
         //Character.sprite = CharaterPool[Random.Range(0, CharaterPool.Length)];
 
+        IsActive = true;
+    }
+
+    private bool _isActive;
+
+    public bool IsActive {
+        get {
+            return _isActive;
+        }
+
+        set {
+            _isActive = value;
+            print(_isActive);
+        }
     }
 
     public void ShowProp(string clue) {
@@ -25,14 +41,22 @@ public class ViewTarget : MonoBehaviour {
                 return;
             }
         }
-        Debug.Log("Target " + gameObject.name + " doesn't have a value for " + clue + "!");
+        
     }
 
     public void PointerDown() {
-
+        _timeOfPointDown = Time.time;
+        _pointDownPos = Input.mousePosition;
     }
 
     public void PointerUp() {
+        if (Time.time - _timeOfPointDown < 0.3f) {
+            float dist = (Input.mousePosition - _pointDownPos).magnitude;
 
+            if (dist / Screen.width < 0.05f) {
+
+                IsActive = !_isActive;
+            }
+        }
     }
 }
