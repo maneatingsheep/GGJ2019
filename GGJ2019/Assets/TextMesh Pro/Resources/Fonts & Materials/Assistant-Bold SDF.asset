@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Assistant-Bold SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -710068563
   material: {fileID: 21395320043748852}
-  materialHashCode: 0
+  materialHashCode: -1378067066
   fontAssetType: 1
   m_fontInfo:
     Name: Assistant
     PointSize: 133
-    Scale: 0
+    Scale: 1
     CharacterCount: 97
     LineHeight: 173.9375
     Baseline: 0
     Ascender: 135.8125
-    CapHeight: 0
+    CapHeight: 86.87499
     Descender: -38.1875
     CenterLine: 0
     SuperscriptOffset: 135.8125
@@ -33,7 +33,7 @@ MonoBehaviour:
     UnderlineThickness: 6.65
     strikethrough: 35.5
     strikethroughThickness: 6.65
-    TabWidth: 0
+    TabWidth: 266.25
     Padding: 15
     AtlasWidth: 1024
     AtlasHeight: 1024
@@ -42,10 +42,10 @@ MonoBehaviour:
   - id: 32
     x: 16
     y: 1039
-    width: 0
-    height: 0
+    width: 26.625
+    height: 174
     xOffset: 0
-    yOffset: 0
+    yOffset: 135.8125
     xAdvance: 26.625
     scale: 1
   - id: 33
@@ -961,7 +961,7 @@ MonoBehaviour:
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 11400000, guid: 1e266feaa8fa449d08bd1d4f7cf06142, type: 2}
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
@@ -980,7 +980,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Assistant-Bold SDF Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -1039,9 +1039,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.9375
+    - _ScaleRatioB: 0.76171875
+    - _ScaleRatioC: 0.76171875
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
