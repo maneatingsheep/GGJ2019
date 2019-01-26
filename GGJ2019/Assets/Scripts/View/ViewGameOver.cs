@@ -5,11 +5,13 @@ using TMPro;
 
 public class ViewGameOver : MonoBehaviour {
 
-    public TextMeshProUGUI WinLoseText;
+    public GameObject WinPopup;
+    public GameObject LosePopup;
     public TextMeshProUGUI ScoreText;
 
     public void Fill(int score, bool isWin) {
-        WinLoseText.text = isWin ? "win!" : "lose!";
-        ScoreText.text = score.ToString("#,##0");
+        WinPopup.SetActive(isWin);
+        LosePopup.SetActive(!isWin);
+        ScoreText.text = "Your score: " + score.ToString("#,##0");
     }
 }
