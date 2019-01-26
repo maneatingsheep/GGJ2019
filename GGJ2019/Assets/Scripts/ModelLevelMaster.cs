@@ -14,6 +14,8 @@ public class ModelLevelMaster : MonoBehaviour {
 
     // Use this for initialization
     public void Init () {
+
+        UnityEngine.Random.InitState(DateTime.Now.Millisecond);
         _levelsList = JsonUtility.FromJson<LevelsList>(LevelsJSON.text);
 
 
@@ -22,7 +24,9 @@ public class ModelLevelMaster : MonoBehaviour {
 
             List<ModelTarget> targetList = new List<ModelTarget>();
             for (int j = 0; j < _levelsList.Levels[i].Targets.Length; j++) {
-                targetList.Insert(UnityEngine.Random.Range(0, targetList.Count), _levelsList.Levels[i].Targets[j]);
+                int pos = UnityEngine.Random.Range(0, targetList.Count + 1);
+                
+                targetList.Insert(pos, _levelsList.Levels[i].Targets[j]);
             }
 
             _levelsList.Levels[i].Targets = targetList.ToArray();
@@ -36,6 +40,10 @@ public class ModelLevelMaster : MonoBehaviour {
 
     internal ModelLevelData GetNextLevel() {
         return _levelsList.Levels[_currentLevel++];
+    }
+
+    public void ResetLevels() {
+        _currentLevel = 0;
     }
 }
 

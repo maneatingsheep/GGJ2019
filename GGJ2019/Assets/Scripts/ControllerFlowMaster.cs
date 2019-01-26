@@ -34,7 +34,8 @@ public class ControllerFlowMaster : MonoBehaviour {
                     OpenScreen.SetActive(false);
                     break;
                 case GameStates.GameOver:
-                    // fill game over
+                    LevelMaster.Init();
+                    LevelMaster.ResetLevels();
                     break;
                 case GameStates.LevelOver:
                     // fill level over
