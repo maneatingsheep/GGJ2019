@@ -40,6 +40,9 @@ public class ViewMainGame : MonoBehaviour {
 
     public int SelectedWindow = -1;
 
+    public GameObject NormalCrosshairs;
+    public GameObject RedCrosshairs;
+
     internal void Init() {
         //ViewClueButton.EButtonPressed += ShowPropFromButton;
     }
@@ -83,7 +86,7 @@ public class ViewMainGame : MonoBehaviour {
         for (int i = 0; i < (PREFERED_STRING_LENGTH - prop.Key.Length) / 2; i++) {
             addedSpaces += " ";
         }
-        string retVal = string.Format("<color=#0000>.</color>{0}{1}{2}<color=#000>.</color>", addedSpaces, prop.Key, addedSpaces);
+        string retVal = string.Format("<color=#0000>.</color>{0}{1}{2}<color=#0000>.</color>", addedSpaces, prop.Key, addedSpaces);
 
 
         return retVal;
@@ -134,19 +137,19 @@ public class ViewMainGame : MonoBehaviour {
         if (_spinning) yield break;
         _spinning = true;
         _previousFiltersRotation = FiltersContainer.rotation.eulerAngles;
-        float targetRotationZ = _previousFiltersRotation.z + (clockwise ? 60 : -60);
+        float targetRotationZ = _previousFiltersRotation.z + (clockwise ? -60 : 60);
         float startTime = Time.time;
         while(Time.time - startTime < RotateFiltersAnimationDuration) {
             float z = (Time.time - startTime) / RotateFiltersAnimationDuration;
-            Quaternion rotation = Quaternion.Euler(0, 0, _previousFiltersRotation.z + (clockwise ? 60 : -60) * z);
+            Quaternion rotation = Quaternion.Euler(0, 0, _previousFiltersRotation.z + (clockwise ? -60 : 60) * z);
             FiltersContainer.rotation = rotation;
             yield return null;
         }
         FiltersContainer.rotation = Quaternion.Euler(0, 0, targetRotationZ);
         _previousFiltersRotation = FiltersContainer.rotation.eulerAngles;
-        _pendingFilterSpins -= _pendingFilterSpins > 0 ? 1:-1 ;
+        _pendingFilterSpins -= _pendingFilterSpins > 0 ? 1 : -1;
         _spinning = false;
-        if(_pendingFilterSpins > 0) {
+        if(_pendingFilterSpins != 0) {
             StartCoroutine(RotateFilters(_pendingFilterSpins > 0));
         }
     }
@@ -195,7 +198,9 @@ public class ViewMainGame : MonoBehaviour {
                 }
 
                 SelectedWindow = (horPos > -1 && verPos > -1) ?(verPos * 2 + horPos) :-1;
-                
+
+                NormalCrosshairs.SetActive(SelectedWindow == -1);
+                RedCrosshairs.SetActive(SelectedWindow > -1);
             }
         } else {
             _mouseDown = false;
